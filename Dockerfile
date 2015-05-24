@@ -23,7 +23,7 @@ RUN rm -f /etc/service/nginx/down
 RUN rm /etc/nginx/sites-enabled/default
 
 # Add the nginx info
-ADD nginx.config /etc/nginx/sites-enabled/sgr.conf
+ADD nginx /etc/nginx/sites-enabled/webapp.conf
 ADD rails-env /etc/nginx/main.d/rails-env.conf
 
 
