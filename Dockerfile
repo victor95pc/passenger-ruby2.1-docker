@@ -26,6 +26,11 @@ RUN rm /etc/nginx/sites-enabled/default
 ADD nginx /etc/nginx/sites-enabled/webapp.conf
 ADD rails-env /etc/nginx/main.d/rails-env.conf
 
+# === 4 ====
+# Setup SSH server
+RUN rm -f /etc/service/sshd/down
+RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
+
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
